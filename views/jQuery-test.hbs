@@ -1,0 +1,13 @@
+{{#section "head"}}
+    <!-- we want Google to ignore this page -->
+    <meta name="robots" content="noindex" />
+{{/section}}
+<h1>Test Page</h1>
+<p>We're testing some jQuery stuff.</p>
+{{#section "jquery"}}
+    <script>
+
+        window.addEventListener('load', () => {
+        document.querySelector('h1').innerHTML = 'jQuery Works' })
+    </script>
+{{/section}}

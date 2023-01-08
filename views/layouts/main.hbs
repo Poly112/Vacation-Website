@@ -1,0 +1,104 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/libs/images/favicon/apple-touch-icon.png"
+        />
+        <style>
+            a.currency { text-decoration: none; } .currency.selected {
+            font-weight: bold; font-size: 150%; }
+        </style>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/libs/images/favicon/favicon-32x32.png"
+        />
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/libs/images/favicon/favicon-16x16.png"
+        />
+        <link
+            rel="stylesheet"
+            href="/libraries/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <link rel="manifest" href="/libs/images/favicon/site.webmanifest" />
+        <link
+            rel="stylesheet"
+            href="{{static '/libs/stylesheet/ny-travel.min.abf165db.css'}}"
+        />
+        <script src="{{static '/libs/js/ny-travel.min.ae9d1cf6.js'}}"></script>
+
+        <title>New york Travel</title>
+        {{{_sections.head}}}
+    </head>
+    {{#if showTests}}
+        <link rel="stylesheet" href="/libs/vendor/mocha.css" />
+    {{/if}}
+    <body>
+        <header><img
+                src="{{static '/libs/images/logo.jpg'}}"
+                alt="Page Logo"
+            /></header>
+
+        <div class="container">
+
+            <header>
+                <h1> New York Travel </h1>
+            </header>
+
+            {{#if flash}}
+
+                <div
+                    class="alert alert-{{flash.type}}
+                        alert-dismissible fade show"
+                    role="alert"
+                >
+                    <strong>{{flash.intro}}</strong>
+                    {{{flash.message}}}
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"
+                    ></button>
+                </div>
+            {{/if}}
+
+            {{{body}}}
+
+            <script
+                src="/libraries/bootstrap/dist/js/bootstrap.min.js"
+            ></script>
+            <script
+                src="https://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"
+            >
+            </script>
+            {{{_sections.jquery}}}
+            <footer>&copy; {{copyrightYear}} New York Travel</footer>
+        </div>
+
+        {{#if showTests}}
+            <div id="mocha"></div>
+            <script src="/libs/vendor/mocha.js"></script>
+            <script src="/libs/vendor/chai.js"></script>
+            <script>
+                mocha.ui('tdd'); const assert = chai.assert;
+            </script>
+            <script src="/libs/qa/tests-global.js"></script>
+            {{#if pageTestScript}}
+                <script src="{{pageTestScript}}"></script>
+            {{/if}}
+            <script>mocha.run();</script>
+        {{/if}}
+    </body>
+</html>
